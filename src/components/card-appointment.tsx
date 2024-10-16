@@ -21,7 +21,7 @@ export function CardAppointment({
 	booking_hour,
 }: CardAppointmentProps) {
 	return (
-		<View className="border-t border-lightGray p-3 bg-white flex-1">
+		<View className="border border-lightGray rounded-md p-3 mb-4 bg-white flex-1">
 			<Text className="font-medium text-black text-lg">
 				{service} - {doctor}
 			</Text>
