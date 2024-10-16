@@ -3,16 +3,17 @@ import { Alert, Text, TouchableOpacity } from "react-native";
 
 interface ButtonProps extends ComponentProps<"button"> {
   text: string
+  variant?: 'primary' | 'danger'
 }
 
-export function Button({ text }: ButtonProps) {
+export function Button({ text, variant = 'primary' }: ButtonProps) {
   function clickMe() {
     Alert.alert('Clicou no caneco!')
   }
 
 	return (
 		<TouchableOpacity
-      className="w-full bg-blue rounded-md items-center justify-center p-3"
+      className={`w-full rounded-md items-center justify-center p-3 ${variant === 'primary' ? 'bg-blue' : 'bg-red'}`}
       onPress={clickMe}
     >
 			<Text
