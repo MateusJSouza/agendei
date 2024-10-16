@@ -1,4 +1,10 @@
-import { Image, type ImageSourcePropType, Text, TouchableOpacity, View } from "react-native";
+import {
+	Image,
+	type ImageSourcePropType,
+	Text,
+	TouchableOpacity,
+	View,
+} from "react-native";
 
 interface CardDoctorProps {
 	name: string;
@@ -10,7 +16,11 @@ export function CardDoctor({ name, icon, specialty }: CardDoctorProps) {
 	return (
 		<TouchableOpacity className="border rounded-md border-lightGray flex-row p-2 mt-1 mb-3">
 			<View>
-				<Image className="w-[50px] h-[50px] m-2" source={icon} alt="Ícone de um Doutor" />
+				<Image
+					className="w-[50px] h-[50px] m-2"
+					source={icon}
+					alt="Ícone de um Doutor"
+				/>
 			</View>
 
 			<View className="items-start flex-col ml-2">

@@ -7,6 +7,11 @@ import female from "../assets/female.png";
 import clock from "../assets/clock.png";
 
 export default {
-    home, calendar, profile,
-    logo, male, female, clock
-}
+	home,
+	calendar,
+	profile,
+	logo,
+	male,
+	female,
+	clock,
+};
