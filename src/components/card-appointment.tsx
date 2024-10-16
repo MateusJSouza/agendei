@@ -21,11 +21,11 @@ export function CardAppointment({
 	booking_hour,
 }: CardAppointmentProps) {
 	return (
-		<View className="border border-lightGray rounded-md p-3 mb-4 bg-white flex-1">
+		<View className="border border-gray4 rounded-md p-3 mb-4 bg-white flex-1">
 			<Text className="font-medium text-black text-lg">
 				{service} - {doctor}
 			</Text>
-			<Text className="text-[#ACACAC] text-sm mb-1">{specialty}</Text>
+			<Text className="text-gray-500 text-sm mb-1">{specialty}</Text>
 
 			<View className="flex-row items-center justify-between">
 				<View className="">
@@ -35,7 +35,7 @@ export function CardAppointment({
 							source={icon.calendar}
 							alt="Ícone representando um calendário, utilizado para indicar a data de agendamentos"
 						/>
-						<Text className="text-gray">{formatDate(booking_date)}</Text>
+						<Text className="text-gray-400">{formatDate(booking_date)}</Text>
 					</View>
 
 					<View className="flex-row items-center">
@@ -44,7 +44,7 @@ export function CardAppointment({
 							alt="Ícone representando um relógio, utilizado para indicar a hora de agendamentos"
 							className="w-7 h-7 mr-1"
 						/>
-						<Text className="text-gray">{booking_hour}h</Text>
+						<Text className="text-gray-400">{booking_hour}h</Text>
 					</View>
 				</View>
 

@@ -36,9 +36,9 @@ export function Login() {
 			</View>
 
 			<View className="items-center flex-row justify-center">
-				<Text className="text-gray">Não tenho conta. </Text>
+				<Text className="text-gray-300">Não tenho conta. </Text>
 				<TouchableOpacity onPress={() => {}}>
-					<Text className="text-blue">Criar conta agora.</Text>
+					<Text className="text-blue-500">Criar conta agora.</Text>
 				</TouchableOpacity>
 			</View>
 		</View>

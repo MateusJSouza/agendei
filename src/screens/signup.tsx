@@ -44,9 +44,9 @@ export function Signup() {
 			</View>
 
 			<View className="items-center flex-row justify-center">
-				<Text className="text-gray">Já tenho uma conta. </Text>
+				<Text className="text-gray-300">Já tenho uma conta. </Text>
 				<TouchableOpacity onPress={() => {}}>
-					<Text className="text-blue">Fazer login.</Text>
+					<Text className="text-blue-500">Fazer login.</Text>
 				</TouchableOpacity>
 			</View>
 		</View>

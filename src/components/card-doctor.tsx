@@ -25,7 +25,7 @@ export function CardDoctor({ name, icon, specialty }: CardDoctorProps) {
 
 			<View className="items-start flex-col ml-2">
 				<Text className="font-bold text-lg mt-1">{name}</Text>
-				<Text className="text-[#ACACAC]">{specialty}</Text>
+				<Text className="text-gray-400">{specialty}</Text>
 			</View>
 		</TouchableOpacity>
 	);

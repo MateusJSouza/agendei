@@ -6,9 +6,7 @@ import { CardAppointment } from "../components/card-appointment";
 export function Calendar() {
 	return (
 		<View className="flex-1 bg-white pt-4">
-			<Text className="text-lg text-black mb-4 ml-4">
-				Agende seus serviços médicos
-			</Text>
+			<Text className="text-lg text-black">Agende seus serviços médicos</Text>
 
 			<FlatList
 				className="p-3"
