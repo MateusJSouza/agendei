@@ -1,8 +1,8 @@
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-import logo from '../assets/logo.png'
 import { useState } from "react";
 import { Button } from "../components/button";
+import icon from "../constants/icon";
 
 export function Signup() {
   const [email, setEmail] = useState<string>('')
@@ -12,7 +12,7 @@ export function Signup() {
   return (
     <View className="bg-white flex-1 justify-between p-10">
       <View className="items-center mt-[51px]">
-        <Image source={logo} alt="Logo do agendei" />
+        <Image source={icon.logo} alt="Logo do agendei" />
       </View>
 
       <View className="space-y-4 w-full max-w-md">
