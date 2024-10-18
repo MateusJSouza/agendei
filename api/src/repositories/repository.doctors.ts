@@ -1,17 +1,13 @@
-import { v4 as uuidv4 } from 'uuid'
-
-export interface IDoctor {
-  name: string
-  specialty: string
-  icon: string
-}
+import { query, type QueryProps } from '../db/sqlite'
 
 async function listDoctors() {
-  const doctors = [
-    { id: 1, name: 'Mateus Jesus', specialty: 'Cardiologista', icon: 'M' },
-    { id: 2, name: 'Maria Joaquina', specialty: 'Cardiologista', icon: 'F' },
-    { id: 3, name: 'Yago Bryan', specialty: 'Clínico Geral', icon: 'M' },
-  ]
+  const sql: QueryProps = {
+    command: 'SELECT * FROM doctors ORDER BY name',
+    params: [],
+    method: 'all',
+  }
+
+  const doctors = await query(sql)
 
   return doctors
 }
