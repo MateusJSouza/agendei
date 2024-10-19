@@ -1,9 +1,11 @@
 import { query, type QueryProps } from '../db/sqlite'
 
-async function listDoctors() {
+async function listDoctors(name?: string) {
   const sql: QueryProps = {
-    command: 'SELECT * FROM doctors ORDER BY name',
-    params: [],
+    command: name
+      ? 'SELECT * FROM doctors WHERE name LIKE ? ORDER BY name'
+      : 'SELECT * FROM doctors ORDER BY name',
+    params: name ? [`%${name}%`] : [],
     method: 'all',
   }
 

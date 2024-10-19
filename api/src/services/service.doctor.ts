@@ -1,13 +1,7 @@
 import repositoryDoctors from '../repositories/repository.doctors'
 
-export interface IDoctor {
-  name: string
-  specialty: string
-  icon: string
-}
-
-async function listDoctors() {
-  const doctors = await repositoryDoctors.listDoctors()
+async function listDoctors(name: string) {
+  const doctors = await repositoryDoctors.listDoctors(name)
 
   return doctors
 }
