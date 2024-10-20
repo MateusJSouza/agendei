@@ -9,7 +9,11 @@ export interface QueryProps {
 }
 
 // Executa comandos SQL no banco SQLite de forma assíncrona
-function query<T>({ command, params, method = 'all' }: QueryProps): Promise<T> {
+function query<T>(
+  command: string,
+  params: Array<string>,
+  method: 'get' | 'all' | 'run' = 'all'
+): Promise<T> {
   return new Promise((resolve, reject) => {
     db[method](command, params, (error: Error | null, result: T) => {
       if (error) reject(error)

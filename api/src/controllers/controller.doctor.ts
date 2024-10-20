@@ -11,10 +11,10 @@ async function listDoctors(req: Request, res: Response) {
 }
 
 async function createDoctor(req: Request, res: Response) {
-  const doctor: IDoctor = req.body
-  await serviceDoctor.createDoctor(doctor)
+  const { name, specialty, icon } = req.body
+  const doctor = await serviceDoctor.createDoctor({ name, specialty, icon })
 
-  res.status(201).json({ message: 'Médico criado com sucesso!' })
+  res.status(201).json(doctor)
 }
 
 async function updateDoctor(req: Request, res: Response) {

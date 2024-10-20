@@ -7,8 +7,14 @@ async function listDoctors(name: string) {
   return doctors
 }
 
-async function createDoctor(doctor: IDoctor) {
-  await repositoryDoctors.createDoctor(doctor)
+async function createDoctor({ name, specialty, icon }: IDoctor) {
+  const doctor = await repositoryDoctors.createDoctor({
+    name,
+    specialty,
+    icon,
+  })
+
+  return doctor
 }
 
 async function updateDoctor(id: string, doctor: IDoctor) {
