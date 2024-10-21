@@ -2,6 +2,7 @@ import { Router } from 'express'
 import jwt from './token'
 import controllerDoctor from './controllers/controller.doctor'
 import controllerUser from './controllers/controller.user'
+import controllerAppointment from './controllers/controller.appointment'
 
 const router = Router()
 
@@ -20,7 +21,12 @@ router.get(
 router.post('/users/register', controllerUser.createUser)
 router.post('/users/login', controllerUser.login)
 
-// TODO - Reservas (appointments)
+// Reservas (appointments)
+router.get(
+  '/appointments',
+  jwt.validateToken,
+  controllerAppointment.listByUsers
+)
 
 // TODO - Serviços prestados (Services)
 
