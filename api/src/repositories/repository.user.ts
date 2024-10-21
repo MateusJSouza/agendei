@@ -1,5 +1,5 @@
 import { query } from '../db/sqlite'
-import type { IUser } from '../services/service.user'
+import type { User } from '../services/service.user'
 import type { CreateUserProps } from '../types/create-user'
 
 async function createUser({ name, email, password }: CreateUserProps) {
@@ -22,7 +22,7 @@ async function findUserByEmail(email: string) {
     method: 'get',
   }
 
-  const user = await query<IUser>(sql.command, sql.params, 'get')
+  const user = await query<User>(sql.command, sql.params, 'get')
 
   return user || null
 }

@@ -42,24 +42,26 @@ async function login(
 ): Promise<IUser | null> {
   const user = await repositoryUser.findUserByEmail(email)
 
-  if (!user) {
+  if (!user || !user.password) {
     return null
   }
 
-  const isPasswordValid = await bcrypt.compare(
-    password,
-    user.user?.password as string
-  )
+  try {
+    const isPasswordValid = await bcrypt.compare(password, user.password)
 
-  if (!isPasswordValid) {
+    if (!isPasswordValid) {
+      return null
+    }
+
+    const { password: _, ...userWithoutPassword } = user
+
+    const token = jwt.createToken(user.id_user)
+
+    return { ...userWithoutPassword, token }
+  } catch (error) {
+    console.error('Erro ao comparar senhas:', error)
     return null
   }
-
-  delete user.user?.password
-
-  const token = jwt.createToken(user.id_user!)
-
-  return { ...user, token }
 }
 
 export default {
