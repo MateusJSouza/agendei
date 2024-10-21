@@ -5,12 +5,19 @@ import type { CreateUserProps } from '../types/create-user'
 
 import dotenv from 'dotenv'
 
+export interface User {
+  id_user: string
+  name: string
+  email: string
+  password?: string // Opcional, pois a senha é removida em algumas operações
+}
+
 export interface IUser {
-  id_user?: string
-  name?: string
-  password?: string
+  id_user: string
+  name: string
+  email: string
   token?: string
-  user?: any
+  user?: User
 }
 
 dotenv.config()
@@ -41,14 +48,14 @@ async function login(
 
   const isPasswordValid = await bcrypt.compare(
     password,
-    user.password as string
+    user.user?.password as string
   )
 
   if (!isPasswordValid) {
     return null
   }
 
-  delete user.password
+  delete user.user?.password
 
   const token = jwt.createToken(user.id_user!)
 
