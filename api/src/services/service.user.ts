@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
+import jwt from '../token'
 import repositoryUser from '../repositories/repository.user'
 import type { CreateUserProps } from '../types/create-user'
 
@@ -10,6 +10,7 @@ export interface IUser {
   name?: string
   password?: string
   token?: string
+  user?: any
 }
 
 dotenv.config()
@@ -23,7 +24,9 @@ async function createUser({ name, email, password }: CreateUserProps) {
     password: hashPassword,
   })
 
-  return user
+  const token = jwt.createToken(user.id_user.toString())
+
+  return { id_user: user.id_user, token }
 }
 
 async function login(
@@ -47,11 +50,9 @@ async function login(
 
   delete user.password
 
-  user.token = jwt.sign({ id: user.id_user }, process.env.JWT_SECRET!, {
-    expiresIn: '1h',
-  })
+  const token = jwt.createToken(user.id_user!)
 
-  return user
+  return { ...user, token }
 }
 
 export default {
