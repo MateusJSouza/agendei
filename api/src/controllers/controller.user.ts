@@ -1,6 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
 import serviceUser from '../services/service.user'
-import jwt from '../token'
 
 async function createUser(req: Request, res: Response) {
   const { name, email, password } = req.body
