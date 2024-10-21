@@ -8,6 +8,19 @@ async function createUser(req: Request, res: Response) {
   res.status(201).json(user)
 }
 
+async function login(req: Request, res: Response): Promise<void> {
+  const { email, password } = req.body
+
+  const user = await serviceUser.login(email, password)
+
+  if (!user) {
+    res.status(401).json({ error: 'Email ou senha inválida ' })
+  }
+
+  res.status(200).json(user)
+}
+
 export default {
   createUser,
+  login,
 }

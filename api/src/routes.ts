@@ -12,6 +12,7 @@ router.delete('/doctors/:id', controllerDoctor.deleteDoctor)
 
 // TODO - Usuários (Users)
 router.post('/users/register', controllerUser.createUser)
+router.post('/users/login', controllerUser.login)
 
 // TODO - Reservas (appointments)
 
