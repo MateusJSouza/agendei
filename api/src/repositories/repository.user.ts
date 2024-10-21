@@ -1,4 +1,3 @@
-import camelcaseKeys from 'camelcase-keys'
 import { query } from '../db/sqlite'
 import type { IUser } from '../services/service.user'
 import type { CreateUserProps } from '../types/create-user'
