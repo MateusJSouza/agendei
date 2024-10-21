@@ -23,7 +23,11 @@
       "recommended": true,
       "style": {
         "noNonNullAssertion": "off",
-        "useConst": "off"
+        "useConst": "off",
+        "noUselessElse": "off"
+      },
+      "performance": {
+        "noDelete": "off"
       },
       "a11y": {
         "noLabelWithoutControl": "off"
