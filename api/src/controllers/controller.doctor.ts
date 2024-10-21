@@ -59,9 +59,24 @@ const deleteDoctor: RequestHandler = async (
   }
 }
 
+const listServices: RequestHandler = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const id_doctor = req.params.id_doctor
+    const services = (await serviceDoctor.listServices(id_doctor)) as IDoctor[]
+    res.status(200).json(services)
+  } catch (error) {
+    next(error)
+  }
+}
+
 export default {
   listDoctors,
   createDoctor,
   updateDoctor,
   deleteDoctor,
+  listServices,
 }

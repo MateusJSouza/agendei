@@ -25,9 +25,16 @@ async function deleteDoctor(id: string) {
   await repositoryDoctors.deleteDoctor(id)
 }
 
+async function listServices(id_doctor: string) {
+  const services = await repositoryDoctors.listServices(id_doctor)
+
+  return services
+}
+
 export default {
   listDoctors,
   createDoctor,
   updateDoctor,
   deleteDoctor,
+  listServices,
 }

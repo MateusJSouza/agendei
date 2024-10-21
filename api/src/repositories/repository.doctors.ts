@@ -51,9 +51,27 @@ async function deleteDoctor(id: string) {
   await query(sql.command, sql.params)
 }
 
+async function listServices(id_doctor: string) {
+  const sql = {
+    command: `
+      SELECT d.id_service, s.description, d.price FROM doctors_services d
+      JOIN services s ON (s.id_service = d.id_service)
+      WHERE d.id_doctor = ?
+      ORDER BY s.description
+    `,
+    params: [id_doctor],
+    method: 'all',
+  }
+
+  const services = await query(sql.command, sql.params)
+
+  return services
+}
+
 export default {
   listDoctors,
   createDoctor,
   updateDoctor,
   deleteDoctor,
+  listServices,
 }
