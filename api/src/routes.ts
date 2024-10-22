@@ -33,6 +33,11 @@ router.post(
   jwt.validateToken,
   controllerAppointment.createAppointment
 )
+router.delete(
+  '/appointments/:id_appointment',
+  jwt.validateToken,
+  controllerAppointment.deleteAppointment
+)
 
 // TODO - Serviços prestados (Services)
 

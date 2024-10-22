@@ -52,7 +52,33 @@ const createAppointment: RequestHandler = async (
   }
 }
 
+const deleteAppointment: RequestHandler<{ id_appointment: string }> = async (
+  req: Request<{ id_appointment: string }, {}, IAppointment>,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const id_user = req.id_user
+    const id_appointment = req.params.id_appointment
+
+    if (!id_user) {
+      res.status(400).json({ message: 'ID do usuário é obrigatório' })
+      return
+    }
+
+    const appointment = await serviceAppointment.deleteAppointment(
+      id_user,
+      id_appointment
+    )
+
+    res.status(200).json(appointment)
+  } catch (error) {
+    next(error)
+  }
+}
+
 export default {
   listByUsers,
   createAppointment,
+  deleteAppointment,
 }

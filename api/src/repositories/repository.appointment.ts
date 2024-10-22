@@ -49,7 +49,25 @@ async function createAppointment({
   return appointment[0]
 }
 
+async function deleteAppointment(id_user: string, id_appointment: string) {
+  const sql = {
+    command: `
+        DELETE FROM appointments WHERE id_appointment = ?
+        AND id_user = ?
+      `,
+    params: [id_appointment, id_user],
+    method: 'run',
+  }
+
+  const appointment = (await query(sql.command, sql.params)) as {
+    id_appointment: number
+  }[]
+
+  return { id_appointment }
+}
+
 export default {
   listAppointments,
   createAppointment,
+  deleteAppointment,
 }

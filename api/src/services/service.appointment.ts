@@ -25,7 +25,17 @@ async function createAppointment({
   return appointment
 }
 
+async function deleteAppointment(id_user: string, id_appointment: string) {
+  const appointment = await repositoryAppointment.deleteAppointment(
+    id_user,
+    id_appointment
+  )
+
+  return appointment
+}
+
 export default {
   listAppointments,
   createAppointment,
+  deleteAppointment,
 }
