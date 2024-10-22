@@ -39,6 +39,4 @@ router.delete(
   controllerAppointment.deleteAppointment
 )
 
-// TODO - Serviços prestados (Services)
-
 export default router
