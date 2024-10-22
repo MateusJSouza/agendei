@@ -2,16 +2,10 @@ import sqlite3 from 'sqlite3'
 
 const SQLite = sqlite3.verbose()
 
-export interface QueryProps {
-  command: string
-  params: Array<string>
-  method: 'get' | 'all' | 'run'
-}
-
 // Executa comandos SQL no banco SQLite de forma assíncrona
 function query<T>(
   command: string,
-  params: Array<string>,
+  params: (string | number)[],
   method: 'get' | 'all' | 'run' = 'all'
 ): Promise<T> {
   return new Promise((resolve, reject) => {
