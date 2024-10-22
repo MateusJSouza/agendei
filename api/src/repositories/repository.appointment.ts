@@ -1,13 +1,5 @@
 import { query } from '../db/sqlite'
-
-export interface IAppointment {
-  id_appointment: number
-  service: string
-  doctor: string
-  specialty: string
-  booking_date: string
-  booking_hour: string
-}
+import type { IAppointment } from '../types/appointment'
 
 async function listAppointments(id_user: string) {
   const sql = {
@@ -33,6 +25,31 @@ async function listAppointments(id_user: string) {
   return appointments
 }
 
+async function createAppointment({
+  id_doctor,
+  id_user,
+  id_service,
+  booking_date,
+  booking_hour,
+}: IAppointment) {
+  const sql = {
+    command: `
+        INSERT INTO appointments
+        (id_doctor, id_user, id_service, booking_date, booking_hour)
+        VALUES (?, ?, ?, ?, ?) RETURNING id_appointment
+      `,
+    params: [id_doctor, id_user, id_service, booking_date, booking_hour],
+    method: 'run',
+  }
+
+  const appointment = (await query(sql.command, sql.params)) as {
+    id_appointment: number
+  }[]
+
+  return appointment[0]
+}
+
 export default {
   listAppointments,
+  createAppointment,
 }

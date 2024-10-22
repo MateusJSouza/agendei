@@ -27,6 +27,11 @@ router.get(
   jwt.validateToken,
   controllerAppointment.listByUsers
 )
+router.post(
+  '/appointments',
+  jwt.validateToken,
+  controllerAppointment.createAppointment
+)
 
 // TODO - Serviços prestados (Services)
 
