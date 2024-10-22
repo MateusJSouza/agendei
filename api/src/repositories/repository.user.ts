@@ -36,8 +36,6 @@ async function profile(id_user: string) {
 
   const user = await query(sql.command, sql.params)
 
-  console.log('Usuário repository: ', user)
-
   return user
 }
 

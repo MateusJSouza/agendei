@@ -43,8 +43,6 @@ async function profile(
 
     const user = await serviceUser.profile(id_user)
     res.status(200).json(user)
-
-    console.log('User controller: ', user)
   } catch (error) {
     next(error)
   }

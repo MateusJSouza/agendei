@@ -67,8 +67,6 @@ async function login(
 async function profile(id_user: string) {
   const user = await repositoryUser.profile(id_user)
 
-  console.log('Usuário service: ', user)
-
   return user
 }
 
