@@ -20,6 +20,7 @@ router.get(
 // Users
 router.post('/users/register', controllerUser.createUser)
 router.post('/users/login', controllerUser.login)
+router.get('/users/profile', jwt.validateToken, controllerUser.profile)
 
 // Reservas (appointments)
 router.get(
