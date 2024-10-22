@@ -27,7 +27,22 @@ async function findUserByEmail(email: string) {
   return user || null
 }
 
+async function profile(id_user: string) {
+  const sql = {
+    command: 'SELECT id_user, name, email FROM users WHERE id_user = ?',
+    params: [id_user],
+    method: 'all',
+  }
+
+  const user = await query(sql.command, sql.params)
+
+  console.log('Usuário repository: ', user)
+
+  return user
+}
+
 export default {
   createUser,
   findUserByEmail,
+  profile,
 }
