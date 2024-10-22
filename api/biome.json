@@ -26,6 +26,9 @@
         "useConst": "off",
         "noUselessElse": "off"
       },
+      "complexity": {
+        "noBannedTypes": "off"
+      },
       "performance": {
         "noDelete": "off"
       },
