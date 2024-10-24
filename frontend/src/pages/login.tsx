@@ -1,5 +1,6 @@
 import logo from '../assets/logo.png'
 import backgroundImage from '../assets/fundo.png'
+import { Link } from 'react-router-dom'
 
 export function Login() {
   return (
@@ -43,9 +44,9 @@ export function Login() {
 
           <div>
             <span className="mr-1">Não tenho uma conta.</span>
-            <a href="/register" className="text-blue-500 underline">
+            <Link to="/register" className="text-blue-500 underline">
               Criar agora!
-            </a>
+            </Link>
           </div>
         </form>
       </div>
